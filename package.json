@@ -5,6 +5,7 @@
   "dependencies": {
     "@apollo/react-hoc": "^3.0.1",
     "@apollo/react-hooks": "^3.0.1",
+    "@auth0/auth0-spa-js": "^1.1.1",
     "apollo-boost": "^0.4.4",
     "apollo-link-context": "^1.0.18",
     "bootstrap": "^4.3.1",
@@ -12,6 +13,7 @@
     "react": "^16.9.0",
     "react-bootstrap": "^1.0.0-beta.11",
     "react-dom": "^16.9.0",
+    "react-router-dom": "^5.0.1",
     "react-scripts": "3.1.1"
   },
   "scripts": {

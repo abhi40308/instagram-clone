@@ -1,33 +1,213 @@
-.App {
-  text-align: center;
+body {
+  margin: 100px 0px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #FAFAFA;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.anchor-nodec {
+  text-decoration: none;
+  color: black;
+}
+
+.anchor-nodec:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.button-nodec {
+  text-decoration: none;
+  border: none;
+  outline: none;
+}
+
+.button-nodec:focus {
+  text-decoration: none;
+  border: none;
+  outline: none;
+}
+
+/* for navbar */
+
+.Nav {
+  background-color: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+  -webkit-transition: height 0.2s ease-in-out;
+  transition: height 0.2s ease-in-out;
+  height: 74px;
+}
+.Nav-menus {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  height: 77px;
+  width: 70%;
+  margin: 0 auto;
+  padding: 26px 40px;
+}
+.Nav-brand-logo {
+  display: block;
+  background-position: -176px 0px;
+  background-image: url(./sprite.png);
+  background-size: 405px 379px;
+  background-repeat: no-repeat;
+  height: 35px;
+  width: 176px;
+  text-indent: -1000%;
+}
+.Nav-user-button {
+  display: block;
+  background-position: -307px -172px;
+  background-image: url(/static/media/sprite.65ffa5ba.png);
+  background-size: 405px 379px;
+  background-repeat: no-repeat;
+  height: 35px;
+  width: 25px;
+  text-indent: -1000%;
+  margin-left: auto;
+}
+
+/* /////////// for post */
+.Post {
+  border-radius: 3px;
+  border: 1px solid #e6e6e6;
+  background-color: #fff;
+  margin-bottom: 60px;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+.Post-user {
+  display: flex;
+  padding: 16px;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.Post-user-avatar {
+  width: 30px;
+  height: 30px;
+}
+.Post-user-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.Post-user-nickname {
+  margin-left: 12px;
+  font-family: "PT Sans", sans-serif;
+  font-weight: bold;
+}
+.Post-image-bg {
+  background-color: #efefef;
+}
+.Post-image img {
+  display: block;
+  width: 100%;
+}
+.Post-caption {
+  padding: 5px 0px 5px 16px;
+  font-size: 14px;
+}
+.Post-likes{
+  padding: 5px 0px 5px 16px;
+  font-size: 14px;
+}
+.Post-caption strong {
+  font-family: "PT Sans", sans-serif;
+  font-weight: bold;
+}
+.Post-time {
+  font-weight: lighter;
+  font-size: 10px;
+  padding-left: 16px;
+  padding-bottom: 5px;
+}
+.vjs-fade-out {
+  display: none;
+  visibility: hidden;
+  opacity: 0;
 }
 
-.App-link {
-  color: #61dafb;
+.button-no-style {
+  text-decoration: none;
+  border: none;
+  padding: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.post-like-button-white {
+  display: block;
+    background-position: -154px -419px;
+    background-image: url(/static/media/sprite.65ffa5ba.png);
+    background-size: 500px 486px;
+    background-repeat: no-repeat;
+    height: 34px;
+    width: 33px;
+    padding-left: 10px;
+    margin-left: 12px;
+    text-indent: -1000%;
 }
+
+.post-like-button-black {
+  display: block;
+    background-position: -123px -419px;
+    background-image: url(/static/media/sprite.65ffa5ba.png);
+    background-size: 500px 486px;
+    background-repeat: no-repeat;
+    height: 34px;
+    width: 33px;
+    padding-left: 10px;
+    margin-left: 12px;
+    text-indent: -1000%;
+}
+
+/* //for profile// */
+.container {
+  width: 70%;
+}
+
+.profile-avatar {
+  border-radius: 50%;
+}
+
+.profile-details {
+  padding-top: 20px;
+}
+
+.profile-username {
+  font-weight: 900;
+  font-size: 18px;
+  padding-top: 10px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.profile-logout {
+  font-size: 12px;
+  margin-top: 4px;
+  /* background-color: #fafafa; */
+}
+
+.profile-stats {
+  font-weight: 500;
+  font-size: 14px;
+  padding-top: 10px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.profile-post-image {
+  height: 250px;
+  width: 250px;
+}
+
+.profile-grid {
+  padding-bottom: 20px;
+}
+
