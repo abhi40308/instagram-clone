@@ -7,7 +7,7 @@ import { useAuth0 } from "../auth/react-auth0-wrapper";
 import { Link } from "react-router-dom";
 import Follow from "./Follow.js";
 
-const USER_INFO = gql`
+export const USER_INFO = gql`
   query($id: String!) {
     User(where: { id: { _eq: $id } }) {
       email
@@ -29,24 +29,24 @@ const USER_INFO = gql`
 `;
 
 export const NUMBER_OF_FOLLOWING = gql`
-query($id: String!) {
-    Follow_aggregate(where: {follower_id: {_eq: $id}}) {
+  query($id: String!) {
+    Follow_aggregate(where: { follower_id: { _eq: $id } }) {
       aggregate {
         count
       }
     }
   }
-`
+`;
 
 export const NUMBER_OF_FOLLOWERS = gql`
-query($id: String!) {
-    Follow_aggregate(where: {following_id: {_eq: $id}}) {
+  query($id: String!) {
+    Follow_aggregate(where: { following_id: { _eq: $id } }) {
       aggregate {
         count
       }
     }
   }
-`
+`;
 
 function Profile(props) {
   const { isAuthenticated, logout, user } = useAuth0();
@@ -62,7 +62,7 @@ function Profile(props) {
   const { loading, error, data } = useQuery(USER_INFO, {
     variables: { id: props.match.params.id }
   });
-  
+
   const dataFollowers = useQuery(NUMBER_OF_FOLLOWERS, {
     variables: { id: props.match.params.id }
   });
@@ -114,7 +114,7 @@ function Profile(props) {
                           </>
                         )}
                         {!isLoggedUser() && (
-                            <Follow id={props.match.params.id} />
+                          <Follow id={props.match.params.id} />
                         )}
                       </>
                     )}
@@ -126,11 +126,15 @@ function Profile(props) {
                     posts
                   </Col>
                   <Col className="profile-stats" xs="auto">
-                  <strong>{dataFollowers.data.Follow_aggregate.aggregate.count}</strong>{" "}
-                  followers
+                    <strong>
+                      {dataFollowers.data.Follow_aggregate.aggregate.count}
+                    </strong>{" "}
+                    followers
                   </Col>
                   <Col className="profile-stats" xs="auto">
-                    <strong>{dataFollowing.data.Follow_aggregate.aggregate.count}</strong>{" "}
+                    <strong>
+                      {dataFollowing.data.Follow_aggregate.aggregate.count}
+                    </strong>{" "}
                     following
                   </Col>
                 </Row>
@@ -143,11 +147,13 @@ function Profile(props) {
           {data.Post.map((post, index) => (
             <Link to={"/post/" + post.id} key={index}>
               <Col xs={4} className="profile-grid">
-                <img
-                  className="profile-post-image"
-                  alt={post.caption}
-                  src={post.url}
-                />
+                <div class="profile-post-image">
+                  <img
+                    className="profile-post-image"
+                    alt={post.caption}
+                    src={post.url}
+                  />
+                </div>
               </Col>
             </Link>
           ))}

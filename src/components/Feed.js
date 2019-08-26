@@ -21,11 +21,13 @@ function Feed(props) {
   if (error) return `Error! ${error.message}`;
 
   return (
-    <Container>
+    <>
+     {/* <Container> */}
       {data.Post.map((post, index) => (
           <Post id={post.id} key={index}/>
       ))}
-    </Container>
+     {/* </Container> */}
+    </>
   );
 }
 

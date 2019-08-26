@@ -5,7 +5,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #FAFAFA;
+  background-color: #fafafa;
+}
+
+.top-padding {
+  padding-top: 10px;
 }
 
 code {
@@ -33,6 +37,24 @@ code {
   text-decoration: none;
   border: none;
   outline: none;
+}
+
+/* for upload post */
+.post-upload-button {
+  position: fixed;
+  background: none;
+  display: block;
+  background-position: -64px -34px;
+  background-image: url(/static/media/sprite.65ffa5ba.png);
+  background-size: 280px 250px;
+  background-repeat: no-repeat;
+  height: 53px;
+  width: 56px;
+  padding-left: 10px;
+  margin-left: 12px;
+  text-indent: -1000%;
+  top: 80%;
+  left: 83%;
 }
 
 /* for navbar */
@@ -112,12 +134,13 @@ code {
 .Post-image img {
   display: block;
   width: 100%;
+  max-height: 450px;
 }
 .Post-caption {
   padding: 5px 0px 5px 16px;
   font-size: 14px;
 }
-.Post-likes{
+.Post-likes {
   padding: 5px 0px 5px 16px;
   font-size: 14px;
 }
@@ -145,28 +168,28 @@ code {
 
 .post-like-button-white {
   display: block;
-    background-position: -154px -419px;
-    background-image: url(/static/media/sprite.65ffa5ba.png);
-    background-size: 500px 486px;
-    background-repeat: no-repeat;
-    height: 34px;
-    width: 33px;
-    padding-left: 10px;
-    margin-left: 12px;
-    text-indent: -1000%;
+  background-position: -154px -419px;
+  background-image: url(/static/media/sprite.65ffa5ba.png);
+  background-size: 500px 486px;
+  background-repeat: no-repeat;
+  height: 34px;
+  width: 33px;
+  padding-left: 10px;
+  margin-left: 12px;
+  text-indent: -1000%;
 }
 
 .post-like-button-black {
   display: block;
-    background-position: -246px -419px;
-    background-image: url(/static/media/sprite.65ffa5ba.png);
-    background-size: 500px 486px;
-    background-repeat: no-repeat;
-    height: 34px;
-    width: 33px;
-    padding-left: 10px;
-    margin-left: 12px;
-    text-indent: -1000%;
+  background-position: -246px -419px;
+  background-image: url(/static/media/sprite.65ffa5ba.png);
+  background-size: 500px 486px;
+  background-repeat: no-repeat;
+  height: 34px;
+  width: 33px;
+  padding-left: 10px;
+  margin-left: 12px;
+  text-indent: -1000%;
 }
 
 /* //for profile// */
@@ -186,7 +209,8 @@ code {
   font-weight: 900;
   font-size: 18px;
   padding-top: 10px;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 .profile-logout {
@@ -199,7 +223,8 @@ code {
   font-weight: 500;
   font-size: 14px;
   padding-top: 10px;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 .profile-post-image {
@@ -209,5 +234,6 @@ code {
 
 .profile-grid {
   padding-bottom: 20px;
+  /* height: 250px;
+  width: 250px; */
 }
-

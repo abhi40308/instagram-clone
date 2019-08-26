@@ -3,8 +3,8 @@ import "../styles/App.css";
 import { gql } from "apollo-boost";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import { useAuth0 } from "../auth/react-auth0-wrapper";
-import { Container, Button } from "react-bootstrap";
-import { NUMBER_OF_FOLLOWERS, NUMBER_OF_FOLLOWING } from "./Profile.js"
+import { Button } from "react-bootstrap";
+import { NUMBER_OF_FOLLOWERS, NUMBER_OF_FOLLOWING } from "./Profile.js";
 
 const FETCH_FOLLWERS = gql`
   query($followingId: String!, $userId: String!) {
@@ -43,7 +43,6 @@ const UNFOLLOW_USER = gql`
 `;
 
 function Follow(props) {
-
   const { isAuthenticated, user } = useAuth0();
 
   // stores if the currently logged in user has followed the user
