@@ -81,7 +81,7 @@ function Like(props) {
     variables: { id: props.postId, userId: userId.current }
   });
 
-  // if above userQuery data is not loaded
+  // if above useQuery data is not loaded
   if (loading) return "Loading...";
   // if data fetch failed
   if (error) return `Error! ${error.message}`;

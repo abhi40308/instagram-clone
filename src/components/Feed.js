@@ -23,7 +23,7 @@ function Feed(props) {
   return (
     <Container>
       {data.Post.map((post, index) => (
-          <Post id={post.id} />
+          <Post id={post.id} key={index}/>
       ))}
     </Container>
   );
