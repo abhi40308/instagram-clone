@@ -123,7 +123,9 @@ function Like(props) {
           )}
         </>
       )}
-      {countLikes ? <span className="Post-likes">{countLikes} likes</span> : null}
+      {countLikes ? (
+        <span className="Post-likes">{countLikes} likes</span>
+      ) : null}
     </div>
   );
 }

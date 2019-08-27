@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useAuth0 } from "../auth/react-auth0-wrapper";
 
 function Header() {
-  const { isAuthenticated, loginWithRedirect, logout, user } = useAuth0();
+  const { isAuthenticated, loginWithRedirect, user } = useAuth0();
 
   return (
     <nav className="Nav">

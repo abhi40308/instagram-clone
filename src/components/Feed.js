@@ -2,8 +2,7 @@ import React from "react";
 import "../styles/App.css";
 import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
-import { Container } from "react-bootstrap";
-import Post from "./Post.js"
+import Post from "./Post.js";
 
 export const POST_LIST = gql`
   {
@@ -14,7 +13,6 @@ export const POST_LIST = gql`
 `;
 
 function Feed(props) {
-
   const { loading, error, data } = useQuery(POST_LIST);
 
   if (loading) return "Loading...";
@@ -22,11 +20,9 @@ function Feed(props) {
 
   return (
     <>
-     {/* <Container> */}
       {data.Post.map((post, index) => (
-          <Post id={post.id} key={index}/>
+        <Post id={post.id} key={index} />
       ))}
-     {/* </Container> */}
     </>
   );
 }

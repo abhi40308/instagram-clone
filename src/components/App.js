@@ -4,7 +4,7 @@ import Header from "./Header.js";
 import Post from "./Post.js";
 import Profile from "./Profile.js";
 import Feed from "./Feed.js";
-import Upload from "./Upload.js"
+import Upload from "./Upload.js";
 
 // for authentication using auth0
 import { useAuth0 } from "../auth/react-auth0-wrapper";
@@ -19,8 +19,7 @@ import { ApolloClient, HttpLink, InMemoryCache } from "apollo-boost";
 import { setContext } from "apollo-link-context";
 
 function App() {
-
-  const { isAuthenticated, user } = useAuth0();
+  const { isAuthenticated } = useAuth0();
 
   // used state to get accessToken through getTokenSilently(), the component re-renders when state changes, thus we have
   // our accessToken in apollo client instance.
@@ -80,8 +79,6 @@ function App() {
         <Route exact path="/" component={Feed} />
         <Route path={"/post/:id"} component={Post} />
         <SecuredRoute path={"/user/:id"} component={Profile} />
-        {/* <SecuredRoute path="/new-post" component={NewPost} />
-        <SecuredRoute path={"/user/:id"} component={Profile} /> */}
       </Switch>
     </ApolloProvider>
   );
