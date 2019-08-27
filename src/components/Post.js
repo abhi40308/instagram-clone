@@ -64,7 +64,6 @@ function Post(props) {
               </Link>
               &nbsp;{post.caption}
             </div>
-
             <div className="Post-time">
               {timeDifferenceForDate(post.created_at)}
             </div>

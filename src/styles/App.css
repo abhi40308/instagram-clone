@@ -45,7 +45,7 @@ code {
   background: none;
   display: block;
   background-position: -64px -34px;
-  background-image: url(/static/media/sprite.65ffa5ba.png);
+  background-image: url(./sprite.png);
   background-size: 280px 250px;
   background-repeat: no-repeat;
   height: 53px;
@@ -91,7 +91,7 @@ code {
 .Nav-user-button {
   display: block;
   background-position: -307px -172px;
-  background-image: url(/static/media/sprite.65ffa5ba.png);
+  background-image: url(./sprite.png);
   background-size: 405px 379px;
   background-repeat: no-repeat;
   height: 35px;
@@ -169,7 +169,7 @@ code {
 .post-like-button-white {
   display: block;
   background-position: -154px -419px;
-  background-image: url(/static/media/sprite.65ffa5ba.png);
+  background-image: url(./sprite.png);
   background-size: 500px 486px;
   background-repeat: no-repeat;
   height: 34px;
@@ -182,7 +182,7 @@ code {
 .post-like-button-black {
   display: block;
   background-position: -246px -419px;
-  background-image: url(/static/media/sprite.65ffa5ba.png);
+  background-image: url(./sprite.png);
   background-size: 500px 486px;
   background-repeat: no-repeat;
   height: 34px;
