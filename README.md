@@ -1,68 +1,72 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Instagram Clone using React, Apollo-React-Client and Hasura GraphQl Engine
 
-## Available Scripts
+This application demonstrates consuming GraphQl Api provided by [Hasura GraphQL Engine](https://hasura.io) using a react app. Uses react-apollo GraphQL client to make requests to the api. Users can create account using [Auth0 JWT authentication](https://auth0.com/) which is then verified by Hasura. React-router is used to provide SPA experience.
 
-In the project directory, you can run:
+Authenticated users can:
+* Create new posts
+* Like posts
+* Follow user profiles
+* Realtime updates when other users upvote a post, create a new post or follow user profile (updating apollo cache).
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Installing and running on local system require:
+* [Setting up Hasura Server](https://docs.hasura.io/1.0/graphql/manual/getting-started/heroku-simple.html) (deployed on Heroku), and creating required tables
+* [Setting up Auth0](https://auth0.com/docs/quickstart/spa/react/01-login#configure-auth0)
+* See [this](https://docs.hasura.io/1.0/graphql/manual/guides/integrations/auth0-jwt.html) guide for Auth0 JWT Integration with Hasura
+* Clone or download this repo, install the required packages and run `npm start`
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## npm packages:
 
-### `npm test`
+You will need the following npm packages:
+* [react-router-dom](https://www.npmjs.com/package/react-router-dom)
+* [react-bootstrap](https://www.npmjs.com/package/react-bootstrap)
+* [apollo-boost](https://www.npmjs.com/package/apollo-boost)
+* [@apollo/react-hooks](https://www.npmjs.com/package/@apollo/react-hooks)
+* [apollo-link-context](https://www.npmjs.com/package/apollo-link-context)
+* [@apollo/react-hoc](https://www.npmjs.com/package/@apollo/react-hoc)
+* [graphql](https://www.npmjs.com/package/graphql)
+* [@auth0/auth0-spa-js](https://www.npmjs.com/package/@auth0/auth0-spa-js)
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Creating tables 
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Following tables required to be created:
+```
+type Post {
+id - integer, primary key
+caption - text
+url - text
+created_at - timestamp with time zone
+user_id - text
+}
+ 
+type User {
+name - text
+last_seen - timestamp with time zone
+avatar - text
+email - text
+id - text, primary key
+}
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+type Like {
+id - integer, primary key
+user_id - text
+post_id - integer
+}
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+type Follow {
+id - integer, primary key
+follower_id - text
+following_id - text
+}
+```
+`Post.user_id` and `User.id` have object relationship in table `Post` and array relationship in table `User`. `Like.post_id` and `Post.id` have array relationship in table `Post`. Row and Column permissions should be given accordingly.
 
-### `npm run eject`
+## User Authentication
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+See [Setting up Auth0 with react](https://auth0.com/docs/quickstart/spa/react/01-login#configure-auth0) and [this](https://docs.hasura.io/1.0/graphql/manual/guides/integrations/auth0-jwt.html) guide for Auth0 JWT Integration with Hasura. Here we are using Auth0 Universal Login.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Realtime updates
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Using apollo cache and react state, we can give realtime updates for likes, new posts and follows. Apollo `refetchQueries` function updates apollo cache with refetched data.
