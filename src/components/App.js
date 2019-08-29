@@ -77,7 +77,7 @@ function App() {
       <Header />
       {isAuthenticated && <Upload />}
       <Switch>
-        <Route exact path="" component={Feed} />
+        <Route exact path="/" component={Feed} />
         <Route path={"/post/:id"} component={Post} />
         <SecuredRoute path={"/user/:id"} component={Profile} />
         {/* <SecuredRoute path="/new-post" component={NewPost} />
