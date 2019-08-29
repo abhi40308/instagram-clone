@@ -1,6 +1,6 @@
 {
     "domain": "dev-z5h3dp-b.auth0.com",
     "clientId": "Iv6qSZ1M6YD1a8lt0M4kbJ4BVEz0pFFF",
-    "redirect_uri": "http://localhost:3000",
+    "redirect_uri": "https://abhi40308.github.io/instagram-clone/",
     "audience": "https://instagram-clone-3.herokuapp.com/v1/graphql"
   }
