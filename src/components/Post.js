@@ -41,12 +41,12 @@ function Post(props) {
             <header>
               <div className="Post-user">
                 <div className="Post-user-avatar">
-                  <Link to={"./user/" + post.User.id}>
+                  <Link to={"user/" + post.User.id}>
                     <img alt={post.User.name} src={post.User.avatar} />
                   </Link>
                 </div>
                 <div className="Post-user-nickname">
-                  <Link className="anchor-nodec" to={"./user/" + post.User.id}>
+                  <Link className="anchor-nodec" to={"user/" + post.User.id}>
                     <span>{post.User.name}</span>
                   </Link>
                 </div>
@@ -59,7 +59,7 @@ function Post(props) {
             </div>
             <Like postId={postId} />
             <div className="Post-caption">
-              <Link className="anchor-nodec" to={"./user/" + post.User.id}>
+              <Link className="anchor-nodec" to={"user/" + post.User.id}>
                 <strong>{post.User.name}</strong>
               </Link>
               &nbsp;{post.caption}

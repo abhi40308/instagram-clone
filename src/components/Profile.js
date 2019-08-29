@@ -145,7 +145,7 @@ function Profile(props) {
         <hr />
         <Row>
           {data.Post.map((post, index) => (
-            <Link to={"./post/" + post.id} key={index}>
+            <Link to={"post/" + post.id} key={index}>
               <Col xs={4} className="profile-grid">
                 <div class="profile-post-image">
                   <img
