@@ -25,7 +25,7 @@ ReactDOM.render(
       domain={config.domain}
       client_id={config.clientId}
       audience={config.audience}
-      redirect_uri={config.redirect_uri}
+      redirect_uri="https://instagram-1919.herokuapp.com/"
       onRedirectCallback={onRedirectCallback}
     >
       <App />

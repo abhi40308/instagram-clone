@@ -37,7 +37,7 @@ function App() {
     try {
       const token = await getTokenSilently();
       setAccessToken(token);
-      // console.log(token);
+      console.log(token);
     } catch (e) {
       console.log(e);
     }
@@ -80,8 +80,6 @@ function App() {
         <Route exact path="/" component={Feed} />
         <Route path={"/post/:id"} component={Post} />
         <SecuredRoute path={"/user/:id"} component={Profile} />
-        {/* <SecuredRoute path="/new-post" component={NewPost} />
-        <SecuredRoute path={"/user/:id"} component={Profile} /> */}
       </Switch>
     </ApolloProvider>
   );
