@@ -10,7 +10,7 @@ function Header() {
     <nav className="Nav">
       <div className="Nav-menus">
         <div className="Nav-brand">
-          <Link className="Nav-brand-logo" to="/">
+          <Link className="Nav-brand-logo" to="./">
             Instagram
           </Link>
         </div>
@@ -25,7 +25,7 @@ function Header() {
 
         {isAuthenticated && (
           <>
-            <Link className="Nav-user-button" to={"/user/" + user.sub} />
+            <Link className="Nav-user-button" to={"./user/" + user.sub} />
           </>
         )}
       </div>
