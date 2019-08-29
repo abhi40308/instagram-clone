@@ -25,7 +25,7 @@ function Header() {
 
         {isAuthenticated && (
           <>
-            <Link className="Nav-user-button" to={"user/" + user.sub} />
+            <Link className="Nav-user-button" to={"/user/" + user.sub} />
           </>
         )}
       </div>
