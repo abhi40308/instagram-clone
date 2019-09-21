@@ -70,3 +70,10 @@ See [Setting up Auth0 with react](https://auth0.com/docs/quickstart/spa/react/01
 ## Realtime updates
 
 Using apollo cache and react state, we can give realtime updates for likes, new posts and follows. Apollo `refetchQueries` function updates apollo cache with refetched data.
+
+## Preview
+App: 
+![App](https://blog.hasura.io/content/images/2019/08/Final_app.png)  
+
+User Profile:
+![User Profile](https://blog.hasura.io/content/images/2019/08/Now_app3.png)
