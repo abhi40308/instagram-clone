@@ -25,7 +25,7 @@ ReactDOM.render(
       domain={config.domain}
       client_id={config.clientId}
       audience={config.audience}
-      redirect_uri="https://priceless-goldstine-20854c.netlify.com/"
+      redirect_uri="https://priceless-goldstine-20854c.netlify.app/"
       onRedirectCallback={onRedirectCallback}
     >
       <App />
