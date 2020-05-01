@@ -68,7 +68,7 @@ code {
   z-index: 2;
   -webkit-transition: height 0.2s ease-in-out;
   transition: height 0.2s ease-in-out;
-  height: 74px;
+  height: 54px;
 }
 .Nav-menus {
   display: flex;
@@ -76,26 +76,26 @@ code {
   height: 77px;
   width: 70%;
   margin: 0 auto;
-  padding: 26px 40px;
+  padding: 11px 40px;
 }
 .Nav-brand-logo {
   display: block;
-  background-position: -176px 0px;
+  background-position: -238px -1px;
   background-image: url(./sprite.png);
-  background-size: 405px 379px;
+  background-size: 394px 379px;
   background-repeat: no-repeat;
   height: 35px;
-  width: 176px;
+  width: 105px;
   text-indent: -1000%;
 }
 .Nav-user-button {
   display: block;
-  background-position: -307px -172px;
+  background-position: -296px -176px;
   background-image: url(./sprite.png);
-  background-size: 405px 379px;
+  background-size: 390px 388px;
   background-repeat: no-repeat;
   height: 35px;
-  width: 25px;
+  width: 24px;
   text-indent: -1000%;
   margin-left: auto;
 }
@@ -168,9 +168,9 @@ code {
 
 .post-like-button-white {
   display: block;
-  background-position: -154px -419px;
+  background-position: -143px -406px;
   background-image: url(./sprite.png);
-  background-size: 500px 486px;
+  background-size: 469px 472px;
   background-repeat: no-repeat;
   height: 34px;
   width: 33px;
@@ -181,12 +181,12 @@ code {
 
 .post-like-button-black {
   display: block;
-  background-position: -246px -419px;
+  background-position: -229px -401px;
   background-image: url(./sprite.png);
-  background-size: 500px 486px;
+  background-size: 467px 466px;
   background-repeat: no-repeat;
   height: 34px;
-  width: 33px;
+  width: 31px;
   padding-left: 10px;
   margin-left: 12px;
   text-indent: -1000%;

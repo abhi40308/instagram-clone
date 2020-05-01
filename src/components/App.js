@@ -1,34 +1,37 @@
-import React, { useState } from "react";
-import "../styles/App.css";
-import Header from "./Header.js";
-import Post from "./Post.js";
-import Profile from "./Profile.js";
-import Feed from "./Feed.js";
-import Upload from "./Upload.js"
+import React, { useState } from 'react';
+import '../styles/App.css';
+import Header from './Header.js';
+import Post from './Post.js';
+import Profile from './Profile.js';
+import Feed from './Feed.js';
+import Upload from './Upload.js';
 
 // for authentication using auth0
-import { useAuth0 } from "../auth/react-auth0-wrapper";
+import { useAuth0 } from '../auth/react-auth0-wrapper';
 
 // for routing
-import { Switch, Route } from "react-router-dom";
-import SecuredRoute from "./SecuredRoute";
+import { Switch, Route } from 'react-router-dom';
+import SecuredRoute from './SecuredRoute';
 
 // for apollo client
-import { ApolloProvider } from "@apollo/react-hooks";
-import { ApolloClient, HttpLink, InMemoryCache } from "apollo-boost";
-import { setContext } from "apollo-link-context";
+import { ApolloProvider } from '@apollo/react-hooks';
+import { ApolloClient, HttpLink, InMemoryCache } from 'apollo-boost';
+import { setContext } from 'apollo-link-context';
+
+// for toast notifications
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
-
   const { isAuthenticated, user } = useAuth0();
 
   // used state to get accessToken through getTokenSilently(), the component re-renders when state changes, thus we have
   // our accessToken in apollo client instance.
-  const [accessToken, setAccessToken] = useState("");
+  const [accessToken, setAccessToken] = useState('');
 
   const { getTokenSilently, loading } = useAuth0();
   if (loading) {
-    return "Loading...";
+    return 'Loading...';
   }
 
   // get access token
@@ -46,7 +49,7 @@ function App() {
 
   // for apollo client
   const httpLink = new HttpLink({
-    uri: "https://instagram-clone-3.herokuapp.com/v1/graphql"
+    uri: 'https://instagram-clone-3.herokuapp.com/v1/graphql'
   });
 
   const authLink = setContext((_, { headers }) => {
@@ -72,14 +75,17 @@ function App() {
     cache: new InMemoryCache()
   });
 
+  // used for toast notifications
+  toast.configure();
+
   return (
     <ApolloProvider client={client}>
       <Header />
       {isAuthenticated && <Upload />}
       <Switch>
-        <Route exact path="/" component={Feed} />
-        <Route path={"/post/:id"} component={Post} />
-        <SecuredRoute path={"/user/:id"} component={Profile} />
+        <Route exact path='/' component={Feed} />
+        <Route path={'/post/:id'} component={Post} />
+        <SecuredRoute path={'/user/:id'} component={Profile} />
       </Switch>
     </ApolloProvider>
   );
