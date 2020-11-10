@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/App.css';
 import Header from './Header.js';
 import Post from './Post.js';
@@ -22,61 +22,63 @@ import { setContext } from 'apollo-link-context';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-function App() {
-  const { isAuthenticated, user } = useAuth0();
+const httpLink = new HttpLink({
+  uri: 'https://instagram-clone-3.herokuapp.com/v1/graphql',
+});
 
+function App() {
+  const { isAuthenticated } = useAuth0();
   // used state to get accessToken through getTokenSilently(), the component re-renders when state changes, thus we have
   // our accessToken in apollo client instance.
   const [accessToken, setAccessToken] = useState('');
-
+  const [client, setClient] = useState();
   const { getTokenSilently, loading } = useAuth0();
-  if (loading) {
-    return 'Loading...';
-  }
 
-  // get access token
-  const getAccessToken = async () => {
-    // getTokenSilently() returns a promise
-    try {
-      const token = await getTokenSilently();
-      setAccessToken(token);
-      console.log(token);
-    } catch (e) {
-      console.log(e);
-    }
-  };
-  getAccessToken();
+  useEffect(() => {
+    const getAccessToken = async () => {
+      try {
+        const token = await getTokenSilently();
+        setAccessToken(token);
+        console.log(token);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    getAccessToken();
+  }, []);
 
-  // for apollo client
-  const httpLink = new HttpLink({
-    uri: 'https://instagram-clone-3.herokuapp.com/v1/graphql'
-  });
+  useEffect(() => {
+    const authLink = setContext((_, { headers }) => {
+      const token = accessToken;
+      if (token) {
+        return {
+          headers: {
+            ...headers,
+            authorization: `Bearer ${token}`,
+          },
+        };
+      } else {
+        return {
+          headers: {
+            ...headers,
+          },
+        };
+      }
+    });
 
-  const authLink = setContext((_, { headers }) => {
-    const token = accessToken;
-    if (token) {
-      return {
-        headers: {
-          ...headers,
-          authorization: `Bearer ${token}`
-        }
-      };
-    } else {
-      return {
-        headers: {
-          ...headers
-        }
-      };
-    }
-  });
-
-  const client = new ApolloClient({
-    link: authLink.concat(httpLink),
-    cache: new InMemoryCache()
-  });
+    const client = new ApolloClient({
+      link: authLink.concat(httpLink),
+      cache: new InMemoryCache(),
+    });
+    setClient(client);
+  }, [accessToken]);
 
   // used for toast notifications
   toast.configure();
+
+  if (loading) {
+    return 'Loading...';
+  }
 
   return (
     <ApolloProvider client={client}>
