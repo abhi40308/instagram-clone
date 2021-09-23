@@ -2,7 +2,6 @@ import React from "react";
 import "../styles/App.css";
 import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
-import { Container } from "react-bootstrap";
 import Post from "./Post.js"
 
 export const POST_LIST = gql`
