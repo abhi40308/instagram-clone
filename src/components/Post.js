@@ -14,6 +14,7 @@ export const POST_INFO = gql`
       caption
       created_at
       url
+      isVerified
       User {
         avatar
         id
@@ -36,7 +37,7 @@ function Post(props) {
   return (
     <>
       <Container>
-        {data.Post.map((post, index) => (
+        {data.Post.filter(post => post.isVerified).map((post, index) => (
           <article className="Post" key={index}>
             <header>
               <div className="Post-user">

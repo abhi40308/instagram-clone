@@ -100,7 +100,9 @@ function Upload() {
                   className='profile-logout top-padding'
                   type='submit'
                   value='Submit'
-                  onClick={() => setModalShow(false)}
+                  onClick={() => {
+                    toast(`Thank you, your image will be verified before uploading`);
+                    setModalShow(false)}}
                 >
                   Submit
                 </Button>
