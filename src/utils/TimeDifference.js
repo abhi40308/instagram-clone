@@ -31,3 +31,9 @@ function timeDifference(current, previous) {
     const updated = new Date(date).getTime()
     return timeDifference(now, updated)
   }
+
+  export function showBeforeDate(date) {
+    const timeBefore = new Date('2021-08-23T00:46:55.245883+00:00').getTime();
+    const current = new Date(date).getTime();
+    return (timeBefore >= current);
+  }

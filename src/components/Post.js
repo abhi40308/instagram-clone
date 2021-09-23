@@ -4,7 +4,7 @@ import { gql } from "apollo-boost";
 import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";
 import Like from "./Like.js";
-import { timeDifferenceForDate } from "../utils/TimeDifference.js";
+import { timeDifferenceForDate, showBeforeDate } from "../utils/TimeDifference.js";
 import { Container } from "react-bootstrap";
 
 export const POST_INFO = gql`
@@ -14,7 +14,6 @@ export const POST_INFO = gql`
       caption
       created_at
       url
-      isVerified
       User {
         avatar
         id
@@ -37,7 +36,7 @@ function Post(props) {
   return (
     <>
       <Container>
-        {data.Post.filter(post => post.isVerified).map((post, index) => (
+        {data.Post.filter(post => showBeforeDate(post.created_at) ).map((post, index) => (
           <article className="Post" key={index}>
             <header>
               <div className="Post-user">
