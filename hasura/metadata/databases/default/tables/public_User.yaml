@@ -1,0 +1,24 @@
+table:
+  name: User
+  schema: public
+select_permissions:
+  - role: anonymous
+    permission:
+      columns:
+        - avatar
+        - email
+        - id
+        - name
+        - last_seen
+      filter: {}
+      allow_aggregations: true
+  - role: user
+    permission:
+      columns:
+        - avatar
+        - email
+        - id
+        - name
+        - last_seen
+      filter: {}
+      allow_aggregations: true

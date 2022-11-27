@@ -1,0 +1,41 @@
+table:
+  name: Like
+  schema: public
+insert_permissions:
+  - role: user
+    permission:
+      check: {}
+      columns:
+        - id
+        - post_id
+        - user_id
+select_permissions:
+  - role: anonymous
+    permission:
+      columns:
+        - id
+        - post_id
+        - user_id
+      filter: {}
+      allow_aggregations: true
+  - role: user
+    permission:
+      columns:
+        - id
+        - user_id
+        - post_id
+      filter: {}
+      allow_aggregations: true
+update_permissions:
+  - role: user
+    permission:
+      columns:
+        - id
+        - post_id
+        - user_id
+      filter: {}
+      check: null
+delete_permissions:
+  - role: user
+    permission:
+      filter: {}
